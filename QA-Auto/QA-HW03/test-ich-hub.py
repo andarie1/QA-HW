@@ -1,3 +1,5 @@
+from time import sleep
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -6,6 +8,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 @pytest.fixture
 def driver():
@@ -19,7 +22,8 @@ def driver():
 
 def test_display_logo(driver):
     """ICH-logo"""
-    ich_logo = driver.find_element(By.CSS_SELECTOR, 'img.tn-atom__img.t-img.loaded')
+    ich_logo = driver.find_element(By.CSS_SELECTOR, '#rec717843722 > div > div > div.t396__elem.tn-elem.tn-elem__7178437221710153310155 > a > img')
+    sleep(5)
     assert ich_logo.is_displayed(), "Логотип ITCareerHub не найден или не отображается!"
 
 
